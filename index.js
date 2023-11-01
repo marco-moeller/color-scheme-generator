@@ -1,22 +1,6 @@
 const BASE_URL = "https://www.thecolorapi.com/";
 const COUNT = 5;
 
-const colorPickerEl = document.querySelector("#color-picker");
-const modeSelectorEl = document.querySelector("#mode-selector");
-
-const submitBtn = document.querySelector("#submit-btn");
-submitBtn.addEventListener("click", () => {
-  fetchColorScheme();
-});
-
-const mainEl = document.querySelector("#main");
-mainEl.addEventListener("click", (event) => {
-  if (event.target.dataset.hex) {
-    navigator.clipboard.writeText(event.target.dataset.hex);
-    renderPopup();
-  }
-});
-
 const modes = [
   "monochrome",
   "monochrome-dark",
@@ -45,6 +29,22 @@ const initialcolors = [
     hex: { value: "#A626D3" },
   },
 ];
+
+const colorPickerEl = document.querySelector("#color-picker");
+const modeSelectorEl = document.querySelector("#mode-selector");
+
+const submitBtn = document.querySelector("#submit-btn");
+submitBtn.addEventListener("click", () => {
+  fetchColorScheme();
+});
+
+const mainEl = document.querySelector("#main");
+mainEl.addEventListener("click", (event) => {
+  if (event.target.dataset.hex) {
+    navigator.clipboard.writeText(event.target.dataset.hex);
+    renderPopup();
+  }
+});
 
 const init = () => {
   renderModeOptions();
