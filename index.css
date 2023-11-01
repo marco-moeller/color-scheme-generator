@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -- Layout -- */
+
+header {
+  padding: 1.5em 0;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.color-picker {
+  border: none;
+  width: 4rem;
+  height: 3rem;
+}
+
+.mode-selector,
+button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 1.5rem;
+}
+
+.mode-selector {
+  padding: 0 0.5em;
+  text-transform: capitalize;
+}
+
+button {
+  padding: 0 1em;
+  background-color: black;
+  color: white;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.color-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.color {
+  width: 100%;
+  height: 100%;
+}
+
+.color-code {
+  padding: 1em;
+  align-self: baseline;
+  text-align: center;
+  width: 100%;
+}
+
+.popup {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(126, 124, 124, 0.7);
+  border-radius: 5px;
+  padding: 1em;
+  text-align: center;
+  margin: 0 auto;
+  color: whitesmoke;
+  max-width: 30vw;
+}
+
+/* -- UTILITY -- */
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Color Scheme Generator</title>
+  </head>
+  <body>
+    <header>
+      <input
+        type="color"
+        id="color-picker"
+        class="color-picker"
+        value="#F55A5A"
+      />
+      <select class="mode-selector" id="mode-selector"></select>
+      <button id="submit-btn">Get color scheme 🎨</button>
+    </header>
+    <main id="main"></main>
+    <h2 id="popup" class="popup hidden">hex value copied</h2>
+    <script src="index.js"></script>
+  </body>
+</html>
