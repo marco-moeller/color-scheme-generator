@@ -32,6 +32,7 @@ const initialcolors = [
 
 const colorPickerEl = document.querySelector("#color-picker");
 const modeSelectorEl = document.querySelector("#mode-selector");
+const hexInputEl = document.querySelector("#hex-input");
 
 const submitBtn = document.querySelector("#submit-btn");
 submitBtn.addEventListener("click", () => {
@@ -43,6 +44,22 @@ mainEl.addEventListener("click", (event) => {
   if (event.target.dataset.hex) {
     navigator.clipboard.writeText(event.target.dataset.hex);
     renderPopup();
+  }
+});
+
+colorPickerEl.addEventListener("change", () => {
+  hexInputEl.value = colorPickerEl.value;
+});
+
+hexInputEl.addEventListener("input", () => {
+  if (isValidHexCode(hexInputEl.value)) {
+    colorPickerEl.value = hexInputEl.value;
+  }
+});
+
+document.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    fetchColorScheme();
   }
 });
 
@@ -65,6 +82,7 @@ const initColors = () => {
 };
 
 const fetchColorScheme = () => {
+  console.log(colorPickerEl.value);
   fetch(
     BASE_URL +
       `scheme?hex=${colorPickerEl.value.substring(1)}&mode=${
@@ -92,6 +110,10 @@ const renderPopup = () => {
   setTimeout(() => {
     popupEl.classList.add("hidden");
   }, 1000);
+};
+
+const isValidHexCode = (hexCode) => {
+  return /^#[0-9A-F]{6}$/i.test(hexCode);
 };
 
 init();

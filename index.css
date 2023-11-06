@@ -17,16 +17,27 @@ body {
 /* -- Layout -- */
 
 header {
-  padding: 1.5em 0;
+  padding: 1.5em 1em;
   display: flex;
   gap: 1em;
   justify-content: center;
 }
 
+.hex-input {
+  border: none;
+  background-color: black;
+  color: whitesmoke;
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 0 1em;
+  width: 9em;
+  border-radius: 5px;
+}
+
 .color-picker {
   border: none;
-  width: 4rem;
-  height: 3rem;
+  height: 100%;
+  aspect-ratio: 1/1;
 }
 
 .mode-selector,
@@ -44,7 +55,7 @@ button {
 }
 
 button {
-  padding: 0 1em;
+  padding: 0.5em;
   background-color: black;
   color: white;
 }
@@ -91,4 +102,37 @@ main {
 
 .hidden {
   display: none;
+}
+
+@media (width <= 920px) {
+  header {
+    display: grid;
+    grid-template-areas: "picker select select select" " hex hex btn btn";
+    grid-auto-columns: min-content auto;
+  }
+  .hex-input {
+    padding: 0.5em;
+    grid-area: hex;
+  }
+  .color-picker {
+    grid-area: picker;
+  }
+  .mode-selector {
+    grid-area: select;
+  }
+  button {
+    grid-area: btn;
+  }
+}
+
+@media (width < 533px) {
+  header {
+    grid-template-areas: "picker select" " hex hex" "btn btn";
+  }
+  .hex-input {
+    width: 100%;
+  }
+  .color-code {
+    padding: 1em 0;
+  }
 }
